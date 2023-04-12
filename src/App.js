@@ -1,10 +1,14 @@
 import "./App.css";
+import { useState } from "react";
 import UnauthenticatedApp from "./components/unauthenticatedApp/UnauthenticatedApp";
+import AuthenticatedApp from "./components/authenticatedApp/AuthenticatedApp";
 
 function App() {
+  const [user, setUser] = useState(true);
+
   return (
     <div className="App">
-      <UnauthenticatedApp />
+      {user ? <AuthenticatedApp /> : <UnauthenticatedApp />}
     </div>
   );
 }
