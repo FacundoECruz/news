@@ -4,20 +4,41 @@ import "./UnauthenticatedApp.css";
 
 function UnauthenticatedApp() {
   const [modal, setModal] = useState("idle");
+  const [error, setError] = useState(null);
 
   const isLogin = modal === "login";
   const isRegister = modal === "register";
 
+  const handleData = (formData) => {
+    const username = formData.username;
+    const password = formData.password;
+    if (username === "" || password === "") {
+      return {error: "Please complete all fields"}
+    }
+    return {username, password}
+  }
+
   function login(formData) {
-    console.log("login", formData);
+    const input = handleData(formData)
+    if(input.error){
+      setError(input.error)
+    } else {
+      console.log(input)
+    }
   }
 
   function register(formData) {
-    console.log("register", formData);
+    const input = handleData(formData)
+    if(input.error){
+      setError(input.error)
+    } else {
+      console.log(input)
+    }
   }
 
   function close() {
     setModal("idle");
+    setError(null);
   }
 
   return (
@@ -28,9 +49,19 @@ function UnauthenticatedApp() {
         <button onClick={() => setModal("register")}>Register</button>
       </div>
       {isLogin ? (
-        <Modal onSubmit={login} buttonText="Login" close={close} />
+        <Modal
+          onSubmit={login}
+          buttonText="Login"
+          close={close}
+          error={error}
+        />
       ) : isRegister ? (
-        <Modal onSubmit={register} buttonText="register" close={close} />
+        <Modal
+          onSubmit={register}
+          buttonText="Register"
+          close={close}
+          error={error}
+        />
       ) : null}
     </div>
   );

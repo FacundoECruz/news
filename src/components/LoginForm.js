@@ -1,4 +1,4 @@
-function LoginForm({ onSubmit, buttonText }) {
+function LoginForm({ onSubmit, buttonText, error }) {
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -23,6 +23,7 @@ function LoginForm({ onSubmit, buttonText }) {
       <div>
         <button type="submit">{buttonText}</button>
       </div>
+      {error ? error : null}
     </form>
   );
 }
