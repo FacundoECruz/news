@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginForm from '../LoginForm';
+import LoginForm from '../loginForm/LoginForm';
 import './Modal.css'
 
 function Modal({onSubmit, buttonText, close, error}) {
