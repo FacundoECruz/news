@@ -4,7 +4,6 @@ import UnauthenticatedApp from "./components/unauthenticatedApp/UnauthenticatedA
 function App() {
   return (
     <div className="App">
-      <h1>News</h1>
       <UnauthenticatedApp />
     </div>
   );

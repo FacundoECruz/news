@@ -2,7 +2,8 @@ import React from 'react';
 import LoginForm from '../LoginForm';
 import './Modal.css'
 
-function Modal() {
+function Modal({onSubmit, buttonText}) {
+
   return(
     <div className='modal'>
       <div className='modal-content'>
@@ -10,7 +11,7 @@ function Modal() {
           <h4 className='modal-title'>Title</h4>
         </div>
         <div className='modal-body'>
-          Modal content
+          <LoginForm onSubmit={onSubmit} buttonText={buttonText}/>
         </div>
         <div className='modal-footer'>
           <button>Close</button>

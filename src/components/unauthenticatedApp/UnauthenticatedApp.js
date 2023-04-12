@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Modal from "../modal/Modal";
-import LoginForm from "../LoginForm";
+import "./UnauthenticatedApp.css";
 
 function UnauthenticatedApp() {
-  const [dialog, setDialog] = useState("idle");
+  const [modal, setModal] = useState("idle");
 
-  const isLogin = dialog === "login";
-  const isRegister = dialog === "register";
+  const isLogin = modal === "login";
+  const isRegister = modal === "register";
 
   function login(formData) {
     console.log("login", formData);
@@ -17,12 +17,13 @@ function UnauthenticatedApp() {
   }
 
   return (
-    <>
-      <button onClick={() => setDialog("login")}>Login</button>
-      <button onClick={() => setDialog("register")}>Register</button>
-      <Modal />     
-      
-    </>
+    <div className="unauth-container">
+      <h1>News</h1>
+      <div>
+        <button onClick={() => setModal("login")}>Login</button>
+        <button onClick={() => setModal("register")}>Register</button>
+      </div>
+    </div>
   );
 }
 
