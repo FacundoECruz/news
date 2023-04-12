@@ -16,6 +16,10 @@ function UnauthenticatedApp() {
     console.log("register", formData);
   }
 
+  function close() {
+    setModal("idle");
+  }
+
   return (
     <div className="unauth-container">
       <h1>News</h1>
@@ -23,6 +27,11 @@ function UnauthenticatedApp() {
         <button onClick={() => setModal("login")}>Login</button>
         <button onClick={() => setModal("register")}>Register</button>
       </div>
+      {isLogin ? (
+        <Modal onSubmit={login} buttonText="Login" close={close} />
+      ) : isRegister ? (
+        <Modal onSubmit={register} buttonText="register" close={close} />
+      ) : null}
     </div>
   );
 }

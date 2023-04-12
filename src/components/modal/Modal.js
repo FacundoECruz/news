@@ -2,7 +2,7 @@ import React from 'react';
 import LoginForm from '../LoginForm';
 import './Modal.css'
 
-function Modal({onSubmit, buttonText}) {
+function Modal({onSubmit, buttonText, close}) {
 
   return(
     <div className='modal'>
@@ -14,7 +14,7 @@ function Modal({onSubmit, buttonText}) {
           <LoginForm onSubmit={onSubmit} buttonText={buttonText}/>
         </div>
         <div className='modal-footer'>
-          <button>Close</button>
+          <button onClick={() => close()}>Close</button>
         </div>
       </div>
     </div>
