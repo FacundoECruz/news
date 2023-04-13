@@ -21,6 +21,8 @@ button {
   padding: 5px;
   margin: 1px;
   border-radius: 15%;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
 }
 
 button:hover {

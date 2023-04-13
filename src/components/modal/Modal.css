@@ -25,12 +25,18 @@
 .modal-title {
   margin: 0;
   justify-content: center;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .modal-body {
   padding: 10px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+}
+
+label {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
 }
 
 .modal-close-btn {
