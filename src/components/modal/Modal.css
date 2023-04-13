@@ -12,19 +12,36 @@
 
 .modal-content {
   width: 500px;
-  background-color: #fff;
+  background-color: #aaa;
 }
 
-.modal-header, .modal-footer {
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 10px;
 }
 
 .modal-title {
   margin: 0;
+  justify-content: center;
 }
 
 .modal-body {
   padding: 10px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+}
+
+.modal-close-btn {
+  width: 20px;
+  height: 20px;
+  background-color: #cc0022;
+  border: 1px solid black;
+  padding: 2px;
+}
+
+.modal-close-btn:hover {
+  background-color: #ff0000;
+  border: 1px solid black;
 }
