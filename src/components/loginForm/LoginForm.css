@@ -1,0 +1,20 @@
+#username, #password {
+  margin: 0 5px;
+  padding: 2px;
+}
+
+.submit-btn {
+  width: 70px;
+  height: 30px;
+  margin: 5px 0;
+  padding: 5px;
+}
+
+.submit-btn:hover {
+  border: 2px solid grey;
+  background-color: aquamarine;
+}
+
+.error-display {
+  color: red;
+}
