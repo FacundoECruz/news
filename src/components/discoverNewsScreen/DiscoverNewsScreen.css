@@ -1,0 +1,24 @@
+.search-bar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#query {
+  width: 50%;
+  height: 20%;
+  margin: 0 2px;
+}
+
+.go-btn {
+  width: 40px;
+  height: 20px;
+  border-radius: 10%;
+  padding: 2px;
+  border: 1px solid black
+}
+
+.go-btn:hover {
+  background-color: greenyellow;
+  border: 1px solid black
+}

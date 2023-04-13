@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { client } from "../../utils/api-client";
 import LoadingCircles from "../loading/LoadingSpinner";
+import "./DiscoverNewsScreen.css";
 
 function DiscoverNewsScreen() {
   const [query, setQuery] = useState("");
@@ -30,13 +31,21 @@ function DiscoverNewsScreen() {
   }
 
   return (
-    <>
+    <div>
       <form onSubmit={handleSearchSubmit}>
-        <label htmlFor="query">Search: </label>
-        <input type="text" id="query" ref={inputRef} />
-        {isLoading ? <LoadingCircles /> : <button type="submit">Go</button>}
+        <div className="search-bar-container">
+          <label htmlFor="query">Search: </label>
+          <input type="text" id="query" ref={inputRef} />
+          {isLoading ? (
+            <LoadingCircles />
+          ) : (
+            <button className="go-btn" type="submit">
+              Go
+            </button>
+          )}
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 
