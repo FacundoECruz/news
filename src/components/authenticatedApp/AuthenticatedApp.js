@@ -1,5 +1,5 @@
 import SearchBar from "../searchBar/SearchBar";
-import NewRow from "../newRow/NewRow";
+import NewsRow from "../newsRow/NewsRow";
 import { useState, useEffect } from 'react';
 import { client } from "../../utils/api-client";
 
@@ -30,8 +30,12 @@ function AuthenticatedApp() {
 
   return(
       <>
-        <SearchBar onSubmit={handleSearchSubmit}/>
-        <NewRow />
+        <SearchBar onSubmit={handleSearchSubmit} status={status}/>
+        {
+          data ? data.articles.map((n, i) => {
+            return <NewsRow key={i} data={data.articles[i]}/> 
+          }) : null
+        }
       </>
     ) 
 }
