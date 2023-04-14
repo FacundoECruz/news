@@ -1,7 +1,13 @@
-import DiscoverNewsScreen from "../discoverNewsScreen/DiscoverNewsScreen";
+import SearchBar from "../searchBar/SearchBar";
+import NewRow from "../newRow/NewRow";
 
 function AuthenticatedApp() {
-  return <DiscoverNewsScreen />;
+  return(
+      <>
+        <SearchBar />
+        <NewRow />
+      </>
+    ) 
 }
 
 export default AuthenticatedApp;

@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { client } from "../../utils/api-client";
 import LoadingCircles from "../loading/LoadingSpinner";
-import "./DiscoverNewsScreen.css";
+import "./SearchBar.css";
 
-function DiscoverNewsScreen() {
+function SearchBar() {
   const [query, setQuery] = useState("");
   const [queried, setQueried] = useState(false);
   const [status, setStatus] = useState("idle");
@@ -49,4 +49,4 @@ function DiscoverNewsScreen() {
   );
 }
 
-export default DiscoverNewsScreen;
+export default SearchBar;
