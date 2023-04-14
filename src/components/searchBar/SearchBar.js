@@ -1,38 +1,22 @@
-import { useState, useRef, useEffect } from "react";
-import { client } from "../../utils/api-client";
+import { useRef } from "react";
 import LoadingCircles from "../loading/LoadingSpinner";
 import "./SearchBar.css";
 
-function SearchBar() {
-  const [query, setQuery] = useState("");
-  const [queried, setQueried] = useState(false);
-  const [status, setStatus] = useState("idle");
-  const [data, setData] = useState(null);
+function SearchBar({ onSubmit, status }) {
+
   const inputRef = useRef();
 
   const isLoading = status === "loading";
   const isSuccess = status === "success";
 
-  useEffect(() => {
-    if (!queried) {
-      return;
-    }
-    setStatus("loading");
-    client(`everything?q=${encodeURIComponent(query)}`).then((responseData) => {
-      setData(responseData);
-      setStatus("success");
-    });
-  }, [query, queried]);
-
-  function handleSearchSubmit(e) {
-    e.preventDefault();
-    setQueried(true);
-    setQuery(inputRef.current.value);
+  function handleSubmit(e) {
+    e.preventDefault()
+    onSubmit(inputRef.current.value)
   }
 
   return (
     <div>
-      <form onSubmit={handleSearchSubmit}>
+      <form onSubmit={handleSubmit}>
         <div className="search-bar-container">
           <label htmlFor="query">Search: </label>
           <input type="text" id="query" ref={inputRef} />
