@@ -1,0 +1,14 @@
+.news-row-container {
+  width: 250px;
+  height: 250px;
+  border: 1px solid black;
+  margin: 3px;
+}
+
+.news-title {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.news-img {
+  width: 200px;
+}

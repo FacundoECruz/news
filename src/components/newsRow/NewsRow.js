@@ -1,3 +1,5 @@
+import "./NewsRow.css"
+
 function NewsRow({ data }) {
   const {
     author,
@@ -11,10 +13,10 @@ function NewsRow({ data }) {
   } = data;
 
   return (
-    <>
-      <h3>{title}</h3>
-      <img src={urlToImage} alt="news-img" />
-    </>
+    <div className="news-row-container">
+      <h3 className="news-title">{title}</h3>
+      <img src={urlToImage} alt="news-img" className="news-img"/>
+    </div>
   );
 }
 

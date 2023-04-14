@@ -1,16 +1,16 @@
 import SearchBar from "../searchBar/SearchBar";
 import NewsRow from "../newsRow/NewsRow";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { client } from "../../utils/api-client";
+import "./AuthenticatedApp.css"
 
 function AuthenticatedApp() {
-
   const [query, setQuery] = useState("");
   const [queried, setQueried] = useState(false);
   const [data, setData] = useState(null);
   const [status, setStatus] = useState("idle");
-  
-  console.log(data)
+
+  console.log(data);
 
   useEffect(() => {
     if (!queried) {
@@ -25,19 +25,21 @@ function AuthenticatedApp() {
 
   function handleSearchSubmit(query) {
     setQueried(true);
-    setQuery(query)
+    setQuery(query);
   }
 
-  return(
-      <>
-        <SearchBar onSubmit={handleSearchSubmit} status={status}/>
-        {
-          data ? data.articles.map((n, i) => {
-            return <NewsRow key={i} data={data.articles[i]}/> 
-          }) : null
-        }
-      </>
-    ) 
+  return (
+    <div className="main-container">
+      <SearchBar onSubmit={handleSearchSubmit} status={status} />
+      <div className="news-container">
+        {data
+          ? data.articles.map((n, i) => {
+              return <NewsRow key={i} data={data.articles[i]} />;
+            })
+          : null}
+      </div>
+    </div>
+  );
 }
 
 export default AuthenticatedApp;
