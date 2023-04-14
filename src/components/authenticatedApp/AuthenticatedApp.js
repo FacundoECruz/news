@@ -1,8 +1,9 @@
 import SearchBar from "../searchBar/SearchBar";
 import NewsRow from "../newsRow/NewsRow";
+import NavLinks from "../navLinks/NavLinks";
 import { useState, useEffect } from "react";
 import { client } from "../../utils/api-client";
-import "./AuthenticatedApp.css"
+import "./AuthenticatedApp.css";
 
 function AuthenticatedApp() {
   const [query, setQuery] = useState("");
@@ -31,12 +32,15 @@ function AuthenticatedApp() {
   return (
     <div className="main-container">
       <SearchBar onSubmit={handleSearchSubmit} status={status} />
-      <div className="news-container">
-        {data
-          ? data.articles.map((n, i) => {
-              return <NewsRow key={i} data={data.articles[i]} />;
-            })
-          : null}
+      <div className="body-container">
+        <NavLinks />
+        <div className="news-container">
+          {data
+            ? data.articles.map((n, i) => {
+                return <NewsRow key={i} data={data.articles[i]} />;
+              })
+            : null}
+        </div>
       </div>
     </div>
   );
