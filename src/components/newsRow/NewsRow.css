@@ -5,6 +5,7 @@
   margin: 3px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .news-title {
@@ -13,4 +14,8 @@
 
 .news-img {
   width: 200px;
+}
+
+.news-author, .news-source {
+  margin: 6px 0;
 }
