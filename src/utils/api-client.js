@@ -8,7 +8,7 @@ function client(endpoint, customConfig = {}) {
   };
 
   return window
-    .fetch(`https://newsapi.org/v2/${endpoint}`, config)
+    .fetch(`${endpoint}`, config)
     .then((response) => response.json());
 }
 

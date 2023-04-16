@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "../modal/Modal";
 import "./UnauthenticatedApp.css";
 
-function UnauthenticatedApp() {
+function UnauthenticatedApp({ login, register }) {
   const [modal, setModal] = useState("idle");
   const [error, setError] = useState(null);
 
@@ -13,26 +13,26 @@ function UnauthenticatedApp() {
     const username = formData.username;
     const password = formData.password;
     if (username === "" || password === "") {
-      return {error: "Please complete all fields"}
+      return { error: "Please complete all fields" };
     }
-    return {username, password}
+    return { username, password };
+  };
+
+  function loginForm(formData) {
+    const input = handleData(formData);
+    if (input.error) {
+      setError(input.error);
+    } else {
+      login(input);
+    }
   }
 
-  function login(formData) {
-    const input = handleData(formData)
-    if(input.error){
-      setError(input.error)
+  function registerForm(formData) {
+    const input = handleData(formData);
+    if (input.error) {
+      setError(input.error);
     } else {
-      console.log(input)
-    }
-  }
-
-  function register(formData) {
-    const input = handleData(formData)
-    if(input.error){
-      setError(input.error)
-    } else {
-      console.log(input)
+      register(input);
     }
   }
 
@@ -50,14 +50,14 @@ function UnauthenticatedApp() {
       </div>
       {isLogin ? (
         <Modal
-          onSubmit={login}
+          onSubmit={loginForm}
           buttonText="Login"
           close={close}
           error={error}
         />
       ) : isRegister ? (
         <Modal
-          onSubmit={register}
+          onSubmit={registerForm}
           buttonText="Register"
           close={close}
           error={error}

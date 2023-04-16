@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { client } from "../../utils/api-client";
 import "./AuthenticatedApp.css";
 
-function AuthenticatedApp() {
+function AuthenticatedApp({user, logout}) {
   const [query, setQuery] = useState("");
   const [queried, setQueried] = useState(false);
   const [data, setData] = useState(null);
@@ -18,7 +18,7 @@ function AuthenticatedApp() {
       return;
     }
     setStatus("loading");
-    client(`everything?q=${encodeURIComponent(query)}`).then((responseData) => {
+    client(`https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}`).then((responseData) => {
       setData(responseData);
       setStatus("success");
     });
