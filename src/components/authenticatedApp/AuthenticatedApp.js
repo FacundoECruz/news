@@ -1,4 +1,4 @@
-import SearchBar from "../searchBar/SearchBar";
+import NavBar from "../navBar/NavBar";
 import NewsRow from "../newsRow/NewsRow";
 import NavLinks from "../navLinks/NavLinks";
 import { useState, useEffect } from "react";
@@ -31,9 +31,10 @@ function AuthenticatedApp({user, logout}) {
 
   return (
     <div className="main-container">
-      <SearchBar onSubmit={handleSearchSubmit} status={status} />
+      <NavBar onSubmit={handleSearchSubmit} status={status} user={user} logout={logout}/>
+  
       <div className="body-container">
-        <NavLinks logout={logout}/>
+        <NavLinks logout={logout} user={user}/>
         <div className="news-container">
           {data
             ? data.articles.map((n, i) => {

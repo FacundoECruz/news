@@ -1,0 +1,60 @@
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #bbb;
+}
+
+.search-bar-container {
+  width: 900px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 5px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+#query {
+  width: 80%;
+  height: 20%;
+  margin: 0 2px;
+  padding: 5px;
+}
+
+label {
+  padding: 4px;
+}
+
+.go-btn {
+  width: 50px;
+  height: 30px;
+  border-radius: 10%;
+  padding: 2px;
+  border: 1px solid black
+}
+
+.go-btn:hover {
+  background-color: #a7a7df;
+  border: 1px solid black
+}
+
+.user-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.username {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.logout-btn {
+  margin-right: 5px;
+}
+
+.logout-btn:hover {
+  background-color: #cc0022;
+}
