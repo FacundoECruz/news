@@ -33,7 +33,7 @@ function AuthenticatedApp({user, logout}) {
     <div className="main-container">
       <SearchBar onSubmit={handleSearchSubmit} status={status} />
       <div className="body-container">
-        <NavLinks />
+        <NavLinks logout={logout}/>
         <div className="news-container">
           {data
             ? data.articles.map((n, i) => {
