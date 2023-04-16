@@ -5,12 +5,10 @@ import "./NavBar.css";
 function NavBar({ onSubmit, status, user, logout }) {
   const inputRef = useRef();
 
-  const isLoading = status === "loading";
-  const isSuccess = status === "success";
-
   function handleSubmit(e) {
     e.preventDefault();
     onSubmit(inputRef.current.value);
+    inputRef.current.value = ""
   }
 
   return (
@@ -19,7 +17,7 @@ function NavBar({ onSubmit, status, user, logout }) {
         <div className="search-bar-container">
           <label htmlFor="query">Search </label>
           <input type="text" id="query" ref={inputRef} />
-          {isLoading ? (
+          {status === "loading" ? (
             <LoadingCircles />
           ) : (
             <button className="go-btn" type="submit">
@@ -30,7 +28,7 @@ function NavBar({ onSubmit, status, user, logout }) {
       </form>
       <div className="user-options">
         <p className="username">{user}</p>
-        <button className="logout-btn">Logout</button>
+        <button className="logout-btn" onClick={logout}>Logout</button>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { client } from "../../utils/api-client";
 import "./AuthenticatedApp.css";
 
-function AuthenticatedApp({user, logout}) {
+function AuthenticatedApp({ user, logout }) {
   const [query, setQuery] = useState("");
   const [queried, setQueried] = useState(false);
   const [data, setData] = useState(null);
@@ -18,7 +18,9 @@ function AuthenticatedApp({user, logout}) {
       return;
     }
     setStatus("loading");
-    client(`https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}`).then((responseData) => {
+    client(
+      `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}`
+    ).then((responseData) => {
       setData(responseData);
       setStatus("success");
     });
@@ -31,10 +33,15 @@ function AuthenticatedApp({user, logout}) {
 
   return (
     <div className="main-container">
-      <NavBar onSubmit={handleSearchSubmit} status={status} user={user} logout={logout}/>
-  
+      <NavBar
+        onSubmit={handleSearchSubmit}
+        status={status}
+        user={user}
+        logout={logout}
+      />
+
       <div className="body-container">
-        <NavLinks logout={logout} user={user}/>
+        <NavLinks logout={logout} user={user} />
         <div className="news-container">
           {data
             ? data.articles.map((n, i) => {
