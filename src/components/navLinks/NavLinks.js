@@ -1,9 +1,11 @@
+import React from "react";
+import "./NavLinks.css"
+
 function NavLinks() {
   return ( 
-    <ul>
+    <ul className="nav-links-container">
       <li>Explore</li>
-      <li>News</li>
-      <li>Editorial</li>
+      <li>Logout</li>
     </ul>
   );
 }

@@ -1,4 +1,4 @@
-import "./NewsRow.css"
+import "./NewsRow.css";
 
 function NewsRow({ data }) {
   const {
@@ -14,8 +14,14 @@ function NewsRow({ data }) {
 
   return (
     <div className="news-row-container">
-      <h3 className="news-title">{title}</h3>
-      <img src={urlToImage} alt="news-img" className="news-img"/>
+      <div className="news-header">
+        <h3 className="news-title">{title}</h3>
+        {author 
+        ? <p className="news-author">{author}</p>
+        : null}
+        <p>{source.name}</p>
+      </div>
+      <img src={urlToImage} alt="news-img" className="news-img" />
     </div>
   );
 }
