@@ -4,8 +4,9 @@ import "./NavLinks.css"
 function NavLinks() {
   return ( 
     <ul className="nav-links-container">
-      <li>Explore</li>
-      <li>Logout</li>
+      {/* Put 'current' class to Explore when its in the page */}
+      <li className="nav-links-explore">Explore</li>
+      <li className="nav-links-logout">Logout</li>
     </ul>
   );
 }
