@@ -1,6 +1,9 @@
 import NavBar from "../navBar/NavBar";
 import NewsRow from "../newsRow/NewsRow";
 import NavLinks from "../navLinks/NavLinks";
+import Show from "../Show/Show"
+import NotFoundScreen from "../notFoundScreen/NotFoundScreen";
+import {Routes, Route, Link} from "react-router-dom"
 import { useState, useEffect } from "react";
 import { client } from "../../utils/api-client";
 import "./AuthenticatedApp.css";
@@ -52,6 +55,16 @@ function AuthenticatedApp({ user, logout }) {
       </div>
     </div>
   );
+}
+
+function AppRoutes() {
+  return(
+    <Routes>
+      <Routes path="/explore" element={<NavBar />}/>
+      <Routes path="/news/:newsTitle" element={<Show />}/>
+      <Routes path="*" element={<NotFoundScreen />}/>
+    </Routes>
+  )
 }
 
 export default AuthenticatedApp;

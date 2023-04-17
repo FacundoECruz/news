@@ -2,16 +2,17 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import UnauthenticatedApp from "./components/unauthenticatedApp/UnauthenticatedApp";
 import AuthenticatedApp from "./components/authenticatedApp/AuthenticatedApp";
+import { BrowserRouter as Router } from "react-router-dom";
 import * as auth from "./utils/auth-provider";
 
 async function getUser() {
-  let user = null
+  let user = null;
 
-  const token = await auth.getToken()
-  if(token) {
-    user = window.localStorage.getItem('user')
+  const token = await auth.getToken();
+  if (token) {
+    user = window.localStorage.getItem("user");
   }
-  return user
+  return user;
 }
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
   console.log(`State User: ${user}`);
 
   useEffect(() => {
-    getUser().then(u => setUser(u))
+    getUser().then((u) => setUser(u));
   }, []);
 
   const reqResLogin = {
@@ -37,7 +38,7 @@ function App() {
     // with the form data, and then we change the data that's sended to
     // the auth provider reqres.in
     setUser(form.username);
-    window.localStorage.setItem('user', form.username)
+    window.localStorage.setItem("user", form.username);
     auth
       .login(reqResLogin)
       .then((token) => console.log(`Successful login: ${token}`));
@@ -46,7 +47,7 @@ function App() {
   const register = (form) => {
     //Same from above in here
     setUser(form.username);
-    window.localStorage.setItem('user', form.username)
+    window.localStorage.setItem("user", form.username);
     auth
       .register(reqResRegister)
       .then((token) => console.log(`Successful register: ${token}`));
@@ -55,13 +56,15 @@ function App() {
   const logout = () => {
     auth.logout();
     setUser(null);
-    console.log("Successful logout")
+    console.log("Successful logout");
   };
 
   return (
     <div className="App">
       {user ? (
-        <AuthenticatedApp user={user} logout={logout} />
+        <Router>
+          <AuthenticatedApp user={user} logout={logout} />
+        </Router>
       ) : (
         <UnauthenticatedApp login={login} register={register} />
       )}
