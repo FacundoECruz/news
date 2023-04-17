@@ -23,6 +23,7 @@ function Explore() {
     ).then((responseData) => {
       setData(responseData);
       setStatus("success");
+      inputRef.current.value = ""
     });
   }, [query, queried]);
 

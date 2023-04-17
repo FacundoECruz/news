@@ -1,4 +1,5 @@
 import "./NewsRow.css";
+import {Link} from "react-router-dom"
 
 function NewsRow({ data }) {
   const {
@@ -13,7 +14,7 @@ function NewsRow({ data }) {
   } = data;
 
   return (
-    <div className="news-row-container">
+    <Link to={`/${publishedAt}`} className="news-row-container">
       <div className="news-header">
         <h3 className="news-title">{title}</h3>
         {author ? <p className="news-author">{author}</p> : null}
@@ -28,7 +29,7 @@ function NewsRow({ data }) {
           className="news-img"
         />
       )}
-    </div>
+    </Link>
   );
 }
 

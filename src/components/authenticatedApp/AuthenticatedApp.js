@@ -30,7 +30,7 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Explore />} />
-      <Route path="/news/:newsTitle" element={<Show />} />
+      <Route path="/:publishedAt" element={<Show />} />
       <Route path="*" element={<NotFoundScreen />} />
     </Routes>
   );
