@@ -10,7 +10,8 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 0 15px;
+  justify-content: space-around;
+  background-color: chocolate;
 }
 
 .search-bar-container {
