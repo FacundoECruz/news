@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { client } from "../../utils/api-client";
 import LoadingCircles from "../loading/LoadingSpinner";
 import NewsRow from "../newsRow/NewsRow";
+import "./Explore.css"
 
 function Explore() {
   const [query, setQuery] = useState("");
@@ -25,13 +26,14 @@ function Explore() {
     });
   }, [query, queried]);
 
-  function handleSearchSubmit(query) {
+  function handleSearchSubmit(e) {
+    e.preventDefault()
     setQueried(true);
-    setQuery(query);
+    setQuery(inputRef.current.value);
   }
 
   return (
-    <>
+    <div className="explore-container">
       <form onSubmit={handleSearchSubmit}>
         <div className="search-bar-container">
           <label htmlFor="query">Search </label>
@@ -54,7 +56,7 @@ function Explore() {
             : null}
         </div>
       ) : null}
-    </>
+    </div>
   );
 }
 
