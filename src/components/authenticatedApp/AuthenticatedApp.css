@@ -18,7 +18,7 @@
   align-items: center;
   width: 15%;
   height: 300px;
-  margin-top: 5%;
+  margin-top: 50px;
   background-color: #bbb;  
 }
 
@@ -39,5 +39,9 @@
 
 .logout-btn:hover {
   background-color: #dc2323;
+}
+
+.content-container {
+  width: 70%;
 }
 
