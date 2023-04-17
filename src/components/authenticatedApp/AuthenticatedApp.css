@@ -22,4 +22,22 @@
   background-color: #bbb;  
 }
 
+.user-options {
+  display: flex;
+  flex-direction: row;
+  background-color: #bbb;
+  width: 15%; 
+  height: 50px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.username {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+}
+
+.logout-btn:hover {
+  background-color: #dc2323;
+}
 
